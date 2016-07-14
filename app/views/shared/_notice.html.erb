@@ -1,0 +1,6 @@
+<% if flash[:error].present?%>
+  <div class="ui error info message"><%= flash[:error]%></div>
+<% end %>
+<% if flash[:success].present?%>
+  <div class="ui ignored info message"><%= flash[:success]%></div>
+<% end %>

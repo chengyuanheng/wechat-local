@@ -11,5 +11,9 @@ class Constant
   #二维码创建获取 http://mp.weixin.qq.com/wiki/18/28fc21e7ed87bec960651f0ce873ef8a.html
   GENERATEQRCODEURL = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=TEMPTOKEN" #生成二维码
   FETCHQRCODEURL = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=TEMPTICKET" #获取二维码
+  #微信回调地址
+  WECHATREQUESTURL = "#{REDIRECTURI}/wechat"
+  #获取用户基本信息: https://mp.weixin.qq.com/wiki/1/8a5ce6257f1d3b2afb20f83e72b72ce9.html
+  UserInfoUrl = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=TEMPACCESSTOKEN&openid=TEMPOPENID&lang=zh_CN"
 
 end

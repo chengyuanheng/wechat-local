@@ -1,0 +1,111 @@
+<div class="ui top attached header">
+  <h1>微信调试</h1>
+  <div class="ui breadcrumb">
+    <div class="active section">微信调试</div>
+  </div>
+</div>
+<%= render partial: 'shared/notice'%>
+<div class="ui attached segment">
+  <div class="row">
+    <div class="column">
+      <div class="ui fluid form segment">
+        <%= form_tag controller: "home", action: "requests", method: "post" do %>
+          <table class="ui very basic table">
+            <tr>
+              <td class="five wide"><h1>url:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='url' name="url" value="<%= @url%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>ToUserName:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='ToUserName' name="ToUserName" value="<%= @ToUserName%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>FromUserName:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='FromUserName' name="FromUserName" value="<%= @FromUserName%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>CreateTime:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='CreateTime' name="CreateTime" value="<%= @CreateTime%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>MsgType:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='MsgType' name="MsgType" value="<%= @MsgType%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>Event:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='Event' name="Event" value="<%= @Event%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>EventKey:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='EventKey' name="EventKey" value="<%= @EventKey%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>Ticket:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='Ticket' name="Ticket" value="<%= @Ticket%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>Latitude:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='Latitude' name="Latitude" value="<%= @Latitude%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>Longitude:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='Longitude' name="Longitude" value="<%= @Longitude%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="five wide"><h1>Precision:</h1></td>
+              <td>
+                <div class="ui fluid massive input">
+                  <input type="text" placeholder='Precision' name="Precision" value="<%= @Precision%>">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= submit_tag '提交', class:"large green ui button"%></td>
+            </tr>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
