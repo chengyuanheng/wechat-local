@@ -38,6 +38,12 @@ class Oauth < ActiveRecord::Base
     return oauth
   end
 
+  def self.unsubscribe openid
+    oauth = find_by(openid: openid)
+    oauth.update_attributes(subscribe: false)
+    oauth
+  end
+
   private
 
   def self.fetch_access_token

@@ -3,16 +3,14 @@ class HomeController < ApplicationController
   # For APIs, you may want to use :null_session instead.
   def index
     @url = Constant::WECHATREQUESTURL #微信回调地址
-    @ToUserName = 'gh_0cda14b0fbe3' #开发者微信号
-    @FromUserName = 'ompx_uCewykyqC6iSuE8FJzwgoHM' #发送方帐号（一个OpenID）
+    @ToUserName = Constant::ToUserName #开发者微信号
+    @FromUserName = Constant::FromUserName #发送方帐号（一个OpenID）
     @CreateTime = Time.now.to_i #消息创建时间 （整型）
-    @MsgType = 'event'
-    @Event = 'subscribe'
+    @MsgType = 'event'  #事件: event 文本: text 取消关注: unsubscribe
+    @Event = 'subscribe' #关注: subscribe 取消关注:unsubscribe
     @EventKey = ''
     @Ticket = ''
-    @Latitude = ''
-    @Longitude = ''
-    @Precision = ''
+    @Content = ''
   end
 
   def requests
@@ -29,9 +27,7 @@ class HomeController < ApplicationController
     json.merge!({Event: params[:Event]}) if params[:Event].present?
     json.merge!({EventKey: params[:EventKey]}) if params[:EventKey].present?
     json.merge!({Ticket: params[:Ticket]}) if params[:Ticket].present?
-    json.merge!({Latitude: params[:Latitude]}) if params[:Latitude].present?
-    json.merge!({Longitude: params[:Longitude]}) if params[:Longitude].present?
-    json.merge!({Precision: params[:Precision]}) if params[:Precision].present?
+    json.merge!({Content: params[:Content]}) if params[:Content].present?
     if url == Constant::WECHATREQUESTURL
       return redirect_to controller: 'wechat',action: 'index', xml: json
     else

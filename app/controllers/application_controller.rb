@@ -18,10 +18,12 @@ class ApplicationController < ActionController::Base
       user = Oauth.request_user_info(params[:code])
       if user['openid'].present?
         session[:openid] = user['openid']
-        @current_user = Oauth.find_by_openid(session[:openid]).try(:user)
+        @current_oauth = Oauth.find_by_openid(session[:openid])
+        @current_user = @current_oauth.try(:user)
       end
     elsif session[:openid]
-      @current_user = Oauth.find_by_openid(session[:openid]).try(:user)
+      @current_oauth = Oauth.find_by_openid(session[:openid])
+      @current_user = @current_oauth.try(:user)
     else
       # return redirect_to Constant::SNSAPIBASEURL # snsapi_base请求
       return redirect_to Constant::SNSAPIUSERINFOURL # snsapi_userinfo请求

@@ -1,4 +1,6 @@
 class Constant
+  ToUserName = 'gh_0cda14b0fbe3' #开发者微信号
+  FromUserName = 'ompx_uCewykyqC6iSuE8FJzwgoHM' #发送方帐号（一个OpenID）
   APPID = 'wx1e3e9fec7a02e85b' #app_id
   APPSECRET = '77d552f0ad5995309d15eb0ca7ffeb13' #app_secret
   BASEACCESSTOKENURL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=#{APPID}&secret=#{APPSECRET}" #获取基础access_token
@@ -15,5 +17,4 @@ class Constant
   WECHATREQUESTURL = "#{REDIRECTURI}/wechat"
   #获取用户基本信息: https://mp.weixin.qq.com/wiki/1/8a5ce6257f1d3b2afb20f83e72b72ce9.html
   UserInfoUrl = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=TEMPACCESSTOKEN&openid=TEMPOPENID&lang=zh_CN"
-
 end

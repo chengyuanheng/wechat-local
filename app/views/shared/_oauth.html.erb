@@ -1,0 +1,19 @@
+<% if @current_oauth.present?%>
+  <div class="ui centered cards">
+    <div class="olive card">
+      <div class="content">
+        <img class="right floated mini ui image" src="<%= @current_oauth.headimgurl%>">
+        <div class="header"><%= @current_oauth.nickname%></div>
+        <% if @current_oauth.subscribe%>
+          <div class="meta"><strong>当前状态: 已关注</strong></div>
+          <div class="meta"><strong>关注时间: <%= Time.at(@current_oauth.subscribed_at)%></strong></div>
+        <% else %>
+          <div class="meta"><strong>当前状态: 未关注</strong></div>
+        <% end %>
+        <div class="description">
+          <strong>地址: <%= @current_oauth.country%><%= @current_oauth.province%><%= @current_oauth.city%></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -18,15 +18,18 @@ class WechatController < ActionController::Base
     when 'subscribe' then subscribe
     when 'SCAN' then scan
     when 'unsubscribe' then unsubscribe
+    when 'CLICK' then click #菜单点击事件
     end
   end
 
   def handle_text
-
+    content = @xml['Content']
+    flash['success'] = "用户发送的消息: #{content}"
+    redirect_to '/'
   end
 
   def handle_unsubscribe
-
+    unsubscribe
   end
 
   def subscribe
@@ -35,12 +38,24 @@ class WechatController < ActionController::Base
     redirect_to '/'
   end
 
+  #未关注扫码无请求, 关注会请求
   def scan
-
+    scene_id = @xml['EventKey'].to_i
+    flash['success'] = "用户扫描二维码#{scene_id}成功"
+    redirect_to '/'
   end
 
   def unsubscribe
+    oauth = Oauth.unsubscribe(@xml['FromUserName'])
+    flash['success'] = "用户#{oauth.nickname}取消关注成功"
+    redirect_to '/'
+  end
 
+  #菜单点击事件
+  def click
+    event_key = @xml['EventKey']
+    flash['success'] = "用户点击菜单获取的EventKey:#{event_key}"
+    redirect_to '/'
   end
 
 end

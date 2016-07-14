@@ -4,6 +4,7 @@
     <div class="active section">微信调试</div>
   </div>
 </div>
+<%= render partial: 'shared/oauth'%>
 <%= render partial: 'shared/notice'%>
 <div class="ui attached segment">
   <div class="row">
@@ -76,26 +77,10 @@
               </td>
             </tr>
             <tr>
-              <td class="five wide"><h1>Latitude:</h1></td>
+              <td class="five wide"><h1>Content:</h1></td>
               <td>
                 <div class="ui fluid massive input">
-                  <input type="text" placeholder='Latitude' name="Latitude" value="<%= @Latitude%>">
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="five wide"><h1>Longitude:</h1></td>
-              <td>
-                <div class="ui fluid massive input">
-                  <input type="text" placeholder='Longitude' name="Longitude" value="<%= @Longitude%>">
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="five wide"><h1>Precision:</h1></td>
-              <td>
-                <div class="ui fluid massive input">
-                  <input type="text" placeholder='Precision' name="Precision" value="<%= @Precision%>">
+                  <input type="text" placeholder='Content' name="Content" value="<%= @Content%>">
                 </div>
               </td>
             </tr>
